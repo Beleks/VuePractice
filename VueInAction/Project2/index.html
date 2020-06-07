@@ -9,7 +9,14 @@
 <body>
     <div id="app">
         <header>
-            <h1 v-text="sitename"></h1>
+            <div>
+                <h1>{{sitename}}</h1>
+            </div>
+            <div>
+                <span class="cart">
+                    Товаров в корзине:{{cartItemCount}}
+                </span>
+            </div>
         </header>
         <p>Удачи в изучении {{sitename}}</p>
         <main>
@@ -25,6 +32,11 @@
                     <p class="prise">
                         {{product.price | formatPrice}}
                     </p>
+                    <button
+                        class="default" 
+                        @click="addToCart">
+                    Add to cart
+                    </button>
                 </div>
             </div>
         </main>
@@ -61,6 +73,16 @@
                         return "$" + (price / 100).toFixed(2)
                     }
                         
+                }
+            },
+            methods: {
+                addToCart: function(){
+                    this.cart.push(this.product.id)
+                },
+            },
+            computed: {
+                cartItemCount: function(){
+                    return this.cart.length || ''
                 }
             }
         })

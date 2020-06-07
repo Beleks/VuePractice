@@ -9,7 +9,16 @@ header{
     display: flex;
     padding: 10px;
     background-color: aquamarine;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart{
+    font-size: 1.4rem;
+    margin-right: 1em;
+    background-color: rgb(82, 201, 161);
+    padding: 0.3em 0.7em;
+    border-radius: 20px;
 }
 
 p{
