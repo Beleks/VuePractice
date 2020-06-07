@@ -17,3 +17,17 @@ p{
     font-weight: bold;
     font-size: 1.4rem;
 }
+
+.product{
+    display: flex;
+}
+
+.col{
+    margin: 1em;
+}
+
+figure{
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+}

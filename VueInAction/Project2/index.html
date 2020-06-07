@@ -12,13 +12,56 @@
             <h1 v-text="sitename"></h1>
         </header>
         <p>Удачи в изучении {{sitename}}</p>
+        <main>
+            <div class="row product">
+                <div class="col">
+                    <figure>
+                        <img src="" alt="Картинки нетю :( ">
+                    </figure>
+                </div>
+                <div class="col col-expand">
+                    <h1 v-text="product.title"></h1>
+                    <p v-html="product.descriptoin"></p>
+                    <p class="prise">
+                        {{product.price | formatPrice}}
+                    </p>
+                </div>
+            </div>
+        </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
         var webstore = new Vue({
             el: '#app',
             data: {
-                sitename: 'Vue.js'
+                sitename: 'Vue.js',
+                product: {
+                    id: 1001,
+                    title: 'Cat Food, 25lb bag',
+                    descriptoin: 'A 25 pound bag of <em>irresistible</em>, ' + 'organic goodness for your cat.',
+                    price: '89',
+                    image: ''
+                },
+                cart: [],
+            },
+            filters: {
+                formatPrice: function(price){
+                    if(!parseInt(price)){return ""} // Если не удается извлечь целое число, немедленно выходим
+                    if(price > 99999){ // Начинает форматировать значение от 1000$ и выше
+                        var priceString = (price / 100).toFixed(2) // Приобразует в десятичное значение
+                        var priceArray = priceString.split('').reverse() 
+                        // split - приобразует в массив, а reverse для массива переворачивает его первый элемент становится последним, а последний первым
+                        var index = 3 
+                        while (priceArray.length > index + 3){ // вставляет запятые через каждые три символа
+                            priceArray.splice(index+3, 0, ",")
+                            index += 4;
+                        }
+                        return "$" + priceArray.reverse().join("")
+                    }else {
+                        return "$" + (price / 100).toFixed(2)
+                    }
+                        
+                }
             }
         })
     </script>
