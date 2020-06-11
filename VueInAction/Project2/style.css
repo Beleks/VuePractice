@@ -1,46 +1,30 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: monospace;
+header h1 {
+  padding: 10px 20px;
 }
 
-.disabled{
-    
+body {
+  max-width: 970px;
+}
+.cart {
+  padding: 20px 50px;
+}
+.boxes {
+  margin-top: 20px;
 }
 
-header{
-    display: flex;
-    padding: 10px;
-    background-color: aquamarine;
-    justify-content: space-between;
-    align-items: center;
+.verify {
+  margin-top: 20px;
 }
 
-.cart{
-    font-size: 1.4rem;
-    margin-right: 1em;
-    background-color: rgb(82, 201, 161);
-    padding: 0.3em 0.7em;
-    border-radius: 20px;
+.submit {
+  margin-top: 20px;
+  float: right;
 }
 
-p{
-    margin: 1em;
-    font-weight: bold;
-    font-size: 1.4rem;
+.pagecheckout {
+  padding: 20px 50px;
 }
-
-.product{
-    display: flex;
-}
-
-.col{
-    margin: 1em;
-}
-
-figure{
-    width: 300px;
-    height: 300px;
-    border: 1px solid black;
+.description {
+  font-size: 150%;
+  margin-top: 50px;
 }
